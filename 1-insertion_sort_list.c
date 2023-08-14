@@ -13,10 +13,10 @@ void insertion_sort_list(listint_t **list)
 	if (list == NULL)
 		return;
 	head = *list, node = head;
-	while (node)
+	while (node) /*loop forward(go right)*/
 	{
 		pnode = node->prev;
-		while (pnode && pnode->n > node->n)
+		while (pnode && pnode->n > node->n) /*loop back(go left)*/
 		{
 			nnode = node->next;
 			if (pnode->prev)
@@ -30,7 +30,7 @@ void insertion_sort_list(listint_t **list)
 
 			pnode = node->prev;
 			if (head->prev)
-			head = head->prev;	
+			head = head->prev;
 			print_list(head);
 		}
 		node = node->next;
