@@ -11,10 +11,11 @@ void quick_sort(int *array, size_t size)
 {
 	int i, j;
 
-	if(!array || size <= 1)
+	if (!array || size <= 1)
 		return;
 	i = 0;
 	j = (int)size - 1;
+	/*build another func so can bring low & high arguments use recursive*/
 	quicksort(array, i, j, size);
 }
 
@@ -33,14 +34,16 @@ void quicksort(int *array, int low, int high, size_t size)
 
 	if (low < high)
 	{
+		/*sort each pivot branch*/
 		p = partition(array, low, high, size);
+		/*recursive pivot binary tree*/
 		quicksort(array, low, p - 1, size);
 		quicksort(array, p + 1, high, size);
 	}
 }
 
 /**
- * partition - Lomuto scheme partition, sort array
+ * partition - Lomuto scheme partition, sort array branches
  * @array: Given array
  * @low: low index in the array
  * @high: high index in the array
